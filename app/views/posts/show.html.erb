@@ -1,0 +1,86 @@
+<div class="container_post_show">
+    <div class="row row_post_show">
+        <div class="col-md-6 post_picture">
+          <%= image_tag @post.picture.url if @post.picture %>
+        </div>
+        <div class="col-md-6 post_info">
+            <div class="poster">
+              <div class="userimage"><%= gravatar_for @post.user, size: 30 %></div>
+              <p><%= @post.user.name %></p>
+              フォローボタン
+            </div>
+            <div class="comments">
+            
+              <div class="commentpartial">
+                <div class="userimage">
+                  <%= gravatar_for @post.user, size: 30 %>
+                </div>
+                <div class="commentcontents">
+                  <h3><%= @post.user.name %></h3>
+                  <span class="commenttext"><%= @post.comment %></span>
+                  <br>
+                  <div class="commentactions">
+                    <span class="timestamp">Posted <%= time_ago_in_words(@post.created_at) %> ago.</span>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              
+              <%= @comments.each do |comment| %>
+              <div class="commentpartial">
+                <div class="userimage">
+                  <%= gravatar_for comment.user, size: 30 %>
+                </div>
+                <div class="commentcontents">
+                  <h3><%= comment.user.name %></h3>
+                  <span class="commenttext"><%= comment.comment %></span>
+                  <br>
+                  <div class="commentactions">
+                    <span class="timestamp"><%= time_ago_in_words(comment.created_at) %> ago.</span>
+                    <span class="Likecount"></span>
+                    <span class="reply">返信</span>
+                    <% if comment.user_id == current_user.id %>
+                      <span class="commmentdelete"><%= link_to "削除", "/comments/#{comment.id}" ,:method => "delete", data: { confirm: "削除しますか?" } %></span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+              <hr>
+              
+            </div>
+            
+            <div class="post_show_icons_part">
+              <div class="post_show_icons_part_left">
+                <a href="#"><i class="far fa-heart fa-2x my-gray icon_margin"></i></a>
+                <a href="#"><i class="far fa-comment fa-2x my-gray icon_margin"></i></a>
+                <a href="#"><i class="far fa-paper-plane fa-2x my-gray icon_margin"></i></a>
+              </div>
+                
+              <div class="post_show_icons_part_right">
+                <% if @post.already_favorited?(current_user) %>
+                <!-- #お気に入りされているときのアイコン表示 -->
+                  <%= link_to("/favorites/#{Favorite.find_by(post_id: @post.id,user_id: current_user.id).id}",post_id: @post.id, method: :delete) do %><i class="fas fa-bookmark fa-2x my-gray icon_margin"></i><% end %>
+                <% else %>
+                <!-- #お気に入りされていないときのアイコン表示 -->
+                  <%= link_to(favorites_path(params:{post_id: @post.id}), method: :post) do %><i class="far fa-bookmark fa-2x my-gray icon_margin"></i><% end %>
+                <% end %>
+              </div>
+            </div>
+            
+            <div class="post_show_likes">
+              ここにいいね数を表示
+            </div>
+              
+            <div class="newcomment">
+              <%= form_for(@newcomment) do |f| %>
+                <%= hidden_field_tag :user_id, @newcomment.user_id %>
+                <%= hidden_field_tag :post_id, @newcomment.post_id %>
+                <%= f.text_area :comment, class: 'commentarea', :placeholder => "コメントを追加...", :size => "1x1"%>
+                <%= f.submit "投稿する", class: "btn btn-primary newcome_sbmtbtn" %>
+              <% end %>
+            </div>
+            
+        </div>
+    </div>
+</div>

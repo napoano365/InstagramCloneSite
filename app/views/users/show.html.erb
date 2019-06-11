@@ -1,0 +1,48 @@
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user, size: 100 %>
+      </h1> 
+    </section>
+  </aside>
+  <aside class="col-md-8">
+    <div class="username">
+     <%= @user.username %>
+    </div>
+    <%= render 'follow_form' if logged_in? %>
+    <%= link_to current_user do %>
+      <i class="fas fa-cog fa-2x my-gray"></i>
+  　<% end %>
+　
+    <section class="statsarea">
+      <%= render 'shared/stats' %>
+    </section>
+    <section class="profiletext">
+      <%= @user.profiletext %><br>
+      <%= link_to @user.website , @user.website %>
+    </section>
+    <%= link_to "ログアウトする", logout_path, method: :delete if current_user?(@user)%>
+    
+  </aside>
+</div>
+
+
+<div>
+
+<div class="container posts">
+  <div class="row">
+    <% if @user.posts.any? %>
+    <h3>投稿数 (<%= @user.posts.count %>)</h3>
+    <br>
+    <% @user.posts.each do |post| %>
+      <div class="col-md-4 picresize">
+        <%= link_to "/posts/#{post.id}" do %>
+        <%= image_tag "#{post.picture}", :class => "img-fluid mx-auto d-block" if post.picture?%>
+        <% end %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

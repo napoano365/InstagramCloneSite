@@ -1,0 +1,33 @@
+current directory: /home/ec2-user/environment/InstaClone/vendor/bundler/ruby/2.6.0/gems/rmagick-3.1.0/ext/RMagick
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0 -r ./siteconf20190610-6290-vy6gtn.rb extconf.rb
+checking for brew... no
+checking for gcc... yes
+checking for pkg-config... yes
+
+
+[31m[1mERROR: Can't install RMagick 3.1.0. Can't find ImageMagick with pkg-config
+[0m
+
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/$(RUBY_BASE_NAME)
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/ec2-user/environment/InstaClone/vendor/bundler/ruby/2.6.0/extensions/x86_64-linux/2.6.0/rmagick-3.1.0/mkmf.log
+
+extconf failed, exit code 1
