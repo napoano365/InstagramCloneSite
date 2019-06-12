@@ -48,6 +48,14 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   
+  #action sample
+  #def auth_done
+  #  facebook_id = request.env['omniauth.auth']['extra']['raw_info']['id']
+  #  name = request.env['omniauth.auth']['extra']['raw_info']['name']
+  #  gender = request.env['omniauth.auth']['extra']['raw_info']['gender']
+  #  redirect_to :root
+  #end
+  
   private
 
     def user_params

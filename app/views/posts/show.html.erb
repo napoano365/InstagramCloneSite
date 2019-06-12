@@ -1,10 +1,10 @@
 <div class="container_post_show">
     <div class="row row_post_show">
-        <div class="col-md-6 post_picture">
-          <%= image_tag @post.picture.url if @post.picture %>
+        <div class="col-md-6 post_show_picture">
+          <%= image_tag @post.picture.url, :class => "img-responsive" if @post.picture %>
         </div>
         <div class="col-md-6 post_info">
-            <div class="poster">
+            <div class="post_show_poster">
               <div class="userimage"><%= gravatar_for @post.user, size: 30 %></div>
               <p><%= @post.user.name %></p>
               フォローボタン
@@ -26,7 +26,7 @@
               </div>
               <hr>
               
-              <%= @comments.each do |comment| %>
+              <% @comments.each do |comment| %>
               <div class="commentpartial">
                 <div class="userimage">
                   <%= gravatar_for comment.user, size: 30 %>
@@ -72,7 +72,7 @@
               ここにいいね数を表示
             </div>
               
-            <div class="newcomment">
+            <div class="post_show_newcomment">
               <%= form_for(@newcomment) do |f| %>
                 <%= hidden_field_tag :user_id, @newcomment.user_id %>
                 <%= hidden_field_tag :post_id, @newcomment.post_id %>

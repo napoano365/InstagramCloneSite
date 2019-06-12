@@ -270,6 +270,126 @@ footer {
   border-color: #e6ecf0;
 }
 
+/*home_page*/
+
+.home_poster{
+  background-color: #fff;
+  border: solid 1px #000;
+  #display: inline-block;
+  margin: 0;
+  text-align: left;
+  padding: 8px;
+  height: 56px;
+  width: 598px;
+}
+
+div.userimage{
+  display: inline-block;
+  margin: 0px 8px 0px 0px;
+  padding: 0;
+}
+
+.home_poster p{
+  display: inline-block;
+  font-size:1.2em;
+  font-weight:bold;
+  margin: 2px 8px 0 8px;
+  padding: 0;
+}
+
+.home_picture {
+  background-color: #fff;
+  border: 1px solid #000000;
+  #display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  height: 598px;
+  width: 598px;
+}
+.home_picture img{
+  object-fit: fill;
+}
+
+div.home_icons_part{
+  background-color: #fff;
+  border: solid 1px #000;
+  #display: inline-block;
+  margin: 0;
+  padding: 4px 16px 0 16px;
+  vertical-align: middle;
+  width: 598px;
+}
+
+.home_icons_part_left{
+  float: left;
+}
+
+.home_icons_part_right{
+  float: right;
+}
+
+.home_likes{
+  background-color: #fff;
+  border: solid 1px #000;
+  #display: inline-block;
+  margin: 0;
+  padding: 0 16px;
+  height: 20px;
+  width: 598px;
+}
+
+.home_poster_comment{
+  background-color: #fff;
+  border: solid 1px #000;
+  #display: inline-block;
+  margin: 0;
+  padding: 0 16px;
+  height: 60px;
+  width: 598px;
+}
+
+.home_followercomment{
+  background-color: #fff;
+  border: solid 1px #000;
+  #display: inline-block;
+  margin: 0;
+  padding: 0 16px;
+  height: 60px;
+  width: 598px;
+}
+
+.home_newcomment{
+  background-color: #fff;
+  border: solid 1px #000;
+  #display: inline-block;
+  margin: 0;
+  padding: 0 2px;
+  text-align: center;
+  height: 40px;
+  width: 598px;
+}
+
+.home_commentarea_size {
+  width: 200px!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* miscellaneous */
 
 .debug_dump {
@@ -368,7 +488,8 @@ div.post_show{
   width: 100%;
 }
 
-.post_picture {
+.post_show_picture {
+  background-color: #fff;
   border: 1px solid #000000;
   display: inline-block;
   margin: 0;
@@ -377,7 +498,7 @@ div.post_show{
   height: 598px;
   width: 598px;
 }
-.post_picture img{
+.post_show_picture img{
   object-fit: fill;
 }
 
@@ -392,7 +513,7 @@ div.post_show{
   width: 334px;
 }
 
-.poster{
+.post_show_poster{
   background-color: #fff;
   border: solid 1px #000;
   display: inline-block;
@@ -408,7 +529,7 @@ div.userimage{
   padding: 0;
 }
 
-.poster p{
+.post_show_poster p{
   display: inline-block;
   font-size:1.2em;
   font-weight:bold;
@@ -455,14 +576,13 @@ div.post_show_icons_part{
   width: 330px;
 }
 
-.newcomment{
+.post_show_newcomment{
   background-color: #fff;
   border: solid 1px #000;
   display: inline-block;
   margin: 0;
   padding: 0 2px;
   text-align: center;
-  
   height: 40px;
   width: 330px;
 }

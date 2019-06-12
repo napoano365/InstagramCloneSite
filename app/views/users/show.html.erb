@@ -34,14 +34,12 @@
 <div class="container posts">
   <div class="row">
     <% if @user.posts.any? %>
-    <h3>投稿数 (<%= @user.posts.count %>)</h3>
-    <br>
-    <% @user.posts.each do |post| %>
-      <div class="col-md-4 picresize">
-        <%= link_to "/posts/#{post.id}" do %>
-        <%= image_tag "#{post.picture}", :class => "img-fluid mx-auto d-block" if post.picture?%>
-        <% end %>
-      </div>
+      <h3>投稿数 (<%= @user.posts.count %>)</h3>
+      <br>
+      <% @user.posts.each do |post| %>
+        <div class="col-sm-12 col-sm-4 picresize">
+          <%= link_to "/posts/#{post.id}" do %><%= image_tag "#{post.picture}", :class => "img-fluid mx-auto d-block" if post.picture?%><% end %>
+        </div>
       <% end %>
     <% end %>
   </div>

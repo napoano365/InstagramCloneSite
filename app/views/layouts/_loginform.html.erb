@@ -12,7 +12,12 @@
     
     <hr size="20">
     <div>または</div>
-    <p>アカウントをお持ちでないですか？<%= link_to "登録する", signup_path%></p>
+
+    <div class="facebooklogin">
+      <%= link_to "Facebookでログイン", "/auth/facebook" %>
+    </div>
+    <br>
+    <p>アカウントをお持ちでないですか？<%= link_to "登録する", signup_path %></p>
   </div>
 </div>
 

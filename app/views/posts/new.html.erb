@@ -4,11 +4,11 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-      <p>ここに写真投稿用のフォームを作成する</p>
+
     <%= form_for(@post) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <div class="field">
-        <%= f.text_area :comment, placeholder: "キャプションを入力..." %>
+        <%= f.text_area :comment, placeholder: "コメントを入力..." %>
       </div>
       
       <span class="picture">
