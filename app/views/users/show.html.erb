@@ -6,23 +6,24 @@
     </section>
   </aside>
   <aside class="col-md-8">
-    <div class="username">
-     <%= @user.username %>
+    <div class="user_show_info">
+      <section class="userinfoarea">
+        <div class="username">
+          <%= @user.username %>
+        </div>
+        <%= render 'follow_form' if logged_in? %>
+        <% if current_user?(@user) %>
+          <%= link_to logout_path, method: :delete, data: { confirm: "ログアウトしますか?" } do %><i class="fas fa-cog fa-2x my-gray"></i><% end %>
+        <% end %>
+    　</section>
+      <section class="statsarea">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="profiletext">
+        <%= @user.profiletext %>
+        <%= link_to @user.website , @user.website %>
+      </section>
     </div>
-    <%= render 'follow_form' if logged_in? %>
-    <%= link_to current_user do %>
-      <i class="fas fa-cog fa-2x my-gray"></i>
-  　<% end %>
-　
-    <section class="statsarea">
-      <%= render 'shared/stats' %>
-    </section>
-    <section class="profiletext">
-      <%= @user.profiletext %><br>
-      <%= link_to @user.website , @user.website %>
-    </section>
-    <%= link_to "ログアウトする", logout_path, method: :delete if current_user?(@user)%>
-    
   </aside>
 </div>
 

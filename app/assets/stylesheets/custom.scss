@@ -418,22 +418,6 @@ div.home_icons_part{
   width: 520px!important;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* miscellaneous */
 
 .debug_dump {
@@ -445,6 +429,21 @@ div.home_icons_part{
 }
 
 /*users*/
+
+/*userimg*/
+.user_show_img{
+  width:290px;
+  height:150px;
+  padding:0;
+  margin:0;
+}
+
+.username{
+  display:inline-block;
+  text-align:left;
+}
+
+
 .deletelink{
   text-align: right;
   float: right;
@@ -455,32 +454,105 @@ aside {
     margin-top: 0;
     text-align: center;
   }
+  
   section {
-    padding: 0;
-    margin-top: 0;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
+
     img {
       border-radius: 50%;
       display: inline-block;
-    }
-    
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
     }
 
   }
 }
 
-.profiletext{
-  background-color: #f2f2f2;
-  width: 600px;
-  margin-left: auto;
+.user_show_info{
+  .userinfoarea{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 20px 0;
+    padding: 0;
+    
+    .username{
+      display: inline-block;
+      font-size: 2em;
+      font-weight: lighter; 
+      text-align: left;
+      margin: 0 10px 0 0;
+      padding: 0;
+    }
+    #follow_form{
+      display: inline-block;
+      .new_relationship{
+        display: inline-block;
+        .followbtnstyle{
+          margin: 0 10px 0 0;
+          padding: 0;
+          height: 25px;
+          width: 120px;
+        }
+      }
+      
+      .edit_relationship{
+        display: inline-block;
+        .followbtnstyle{
+          margin: 0;
+          padding: 0;
+          height: 25px;
+          width: 120px;
+          
+        }
+      }
+    }
+  }
+  .profiletext{
+    /*background-color: ;*/
+    text-align: left;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    height: 80px;
+    width: 610px;
+    
+    a{
+      display: inline-block;
+    }
+  }
 }
+
+/*stats*/
+
+.stats{
+  display:block;
+  margin-bottom:20px;
+}
+.postscount {
+  display:inline;
+}
+.followers {
+  display:inline;
+}
+
+.followers a{
+  color:#000!important;
+}
+.followings {
+  display:inline;
+}
+.followings a{
+  color:#000!important;
+  display:inline;
+}
+
+/*follow*/
+
+.users_follow{
+  list-style: none;
+}
+
+.inline_block img{
+    display:inline-block;
+}
+
 
 .posts{
   background-color: #f2f2f2;
@@ -732,44 +804,5 @@ form.new_comment{
 
 }
 
-/*userimg*/
-.user_show_img{
-  width:290px;
-  height:150px;
-  padding:0;
-  margin:0;
-}
 
-/*stats*/
 
-.stats{
-  display:block;
-  margin-bottom:20px;
-}
-.postscount {
-  display:inline;
-}
-.followers {
-  display:inline;
-}
-
-.followers a{
-  color:#000!important;
-}
-.followings {
-  display:inline;
-}
-.followings a{
-  color:#000!important;
-  display:inline;
-}
-
-/*follow*/
-
-.users_follow{
-  list-style: none;
-}
-
-.inline_block img{
-    display:inline-block;
-}
