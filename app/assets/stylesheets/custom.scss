@@ -451,28 +451,28 @@ div.home_icons_part{
 }
 
 aside {
-  section.user_info {
-    margin-top: 20px;
+  section.user_show_img {
+    margin-top: 0;
+    text-align: center;
   }
   section {
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 0;
+    margin-top: 0;
     &:first-child {
       border: 0;
       padding-top: 0;
     }
+    img {
+      border-radius: 50%;
+      display: inline-block;
+    }
+    
     span {
       display: block;
       margin-bottom: 3px;
       line-height: 1;
     }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
+
   }
 }
 
@@ -502,8 +502,6 @@ aside {
 
 .username{
   display:inline-block;
-  font-color:#262626!important;
-  fon-size:28px!important;
   text-align:left;
 }
 
@@ -734,12 +732,12 @@ form.new_comment{
 
 }
 
-/*userinfo*/
-.user_info{
+/*userimg*/
+.user_show_img{
   width:290px;
   height:150px;
   padding:0;
-  margin:0 30px 0 0 ;
+  margin:0;
 }
 
 /*stats*/
