@@ -9,7 +9,7 @@
     
     <div class="actionicons home_icons_part">
       <div class="home_icons_part_left">
-        <% if @post.already_liked?(current_user) %>
+        <% if post.already_liked?(current_user) %>
         <!-- #いいねされているときのアイコン表示 -->
           <%= link_to("/likes/#{Like.find_by(post_id: post.id,user_id: current_user.id).id}",post_id: post.id, method: :delete) do %><i class="fas fa-heart fa-2x my-pink icon_margin"></i><% end %>
         <% else %>
