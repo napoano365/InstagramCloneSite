@@ -56,6 +56,12 @@ class UsersController < ApplicationController
   #  redirect_to :root
   #end
   
+  def auth_done
+  end
+  
+  def auth_failure
+  end
+  
   private
 
     def user_params

@@ -96,6 +96,7 @@ p {
 
 /* header */
 .my-gray {color: #9c9c9c}
+.my-pink {color: #ed4956}
 
 .icon_margin{
   margin:0 8px;
@@ -135,12 +136,37 @@ div.logo_part {
 /*searchbar_part*/
 div.searchbar_part{
   display: inline-block;
-  vertical-align: middle;
+  /*vertical-align: middle;*/
 }
 
 .searchbar::placeholder {
    text-align: center; 
 }
+
+.searchbar{
+  text-align:center;
+}
+
+.searchinput{
+  background-color: #fff;
+  border: 1px solid #fff;
+  display:inline-block;
+  height: 20px;
+  text-align:  center;
+  width:160px;
+}
+
+.searchbtn{
+  background-color: #fff;
+  border: 1px solid #fff;
+  display: inline-block;
+  text-align:  center;
+  height: 20px;
+  width: 30px;
+}
+
+
+
 
 /*icons_part*/
 div.header_icons_part{
@@ -342,10 +368,10 @@ div.home_icons_part{
 .home_poster_comment{
   background-color: #fff;
   border: solid 1px #000;
-  #display: inline-block;
+  display: inline-block;
   margin: 0;
   padding: 0 16px;
-  height: 60px;
+  height: 72px;
   width: 598px;
 }
 
@@ -353,10 +379,30 @@ div.home_icons_part{
   background-color: #fff;
   border: solid 1px #000;
   #display: inline-block;
+  overflow: scroll;
   margin: 0;
   padding: 0 16px;
-  height: 60px;
+  height: 120px;
   width: 598px;
+}
+
+.home_commentpartial{
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+
+.home_commentcontents{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.home_commentcontents p{
+  display: inline-block;
+  font-size:1.2em;
+  font-weight:bold;
+  margin: 0 8px 0 0;
+  padding: 0;
 }
 
 .home_newcomment{
@@ -365,13 +411,13 @@ div.home_icons_part{
   #display: inline-block;
   margin: 0;
   padding: 0 2px;
-  text-align: center;
+  text-align: left;
   height: 40px;
   width: 598px;
 }
 
 .home_commentarea_size {
-  width: 200px!important;
+  width: 520px!important;
 }
 
 
@@ -525,6 +571,7 @@ div.post_show{
 
 div.userimage{
   display: inline-block;
+  vertical-align: top;
   margin: 0px 8px 0px 0px;
   padding: 0;
 }
@@ -542,9 +589,10 @@ div.userimage{
   background-color: #fff;
   border: solid 1px #000;
   display: inline-block;
-  height: 340px;
   overflow: scroll;
-  padding: 16px 12px;
+  text-align: left;
+  padding: 16px;
+  height: 340px;
   width: 330px;
 }
 
@@ -570,6 +618,7 @@ div.post_show_icons_part{
   background-color: #fff;
   border: solid 1px #000;
   display: inline-block;
+  text-align: left;
   margin: 0;
   padding: 0 16px;
   height: 110px;
@@ -596,7 +645,7 @@ form.new_comment{
   text-align: left;
   line-height: 36px;
   height: 36px;
-  width: 320px;
+  width: 100%;
 }
 
 .commentarea{
@@ -634,16 +683,23 @@ form.new_comment{
     display:none;
 }
 
-.commentpartial{
-  display:flex;
+.post_show_commentpartial{
+  margin: 12px 0 0 0;
+  padding: 0;
 }
 
-.commentcontents h3{
+.post_show_commentcontents{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.post_show_commentcontents p{
+  display: inline-block;
   font-size:1.2em;
-  margin:2px 8px 8px 0px;
-  padding:0;
-  display:inline-block;
   font-weight:bold;
+  margin: 0 8px 0 0;
+  padding: 0;
 }
 
 .commenttext{

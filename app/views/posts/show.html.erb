@@ -11,28 +11,28 @@
             </div>
             <div class="comments">
             
-              <div class="commentpartial">
+              <div class="post_show_commentpartial">
                 <div class="userimage">
                   <%= gravatar_for @post.user, size: 30 %>
                 </div>
-                <div class="commentcontents">
-                  <h3><%= @post.user.name %></h3>
+                <div class="post_show_commentcontents">
+                  <p><%= @post.user.name %></p>
                   <span class="commenttext"><%= @post.comment %></span>
                   <br>
                   <div class="commentactions">
-                    <span class="timestamp">Posted <%= time_ago_in_words(@post.created_at) %> ago.</span>
+                   <span class="timestamp">Posted <%#= time_ago_in_words(@post.created_at) %> ago.</span>
                   </div>
                 </div>
               </div>
               <hr>
               
               <% @comments.each do |comment| %>
-              <div class="commentpartial">
+              <div class="post_show_commentpartial">
                 <div class="userimage">
                   <%= gravatar_for comment.user, size: 30 %>
                 </div>
-                <div class="commentcontents">
-                  <h3><%= comment.user.name %></h3>
+                <div class="post_show_commentcontents">
+                  <p><%= comment.user.name %></p>
                   <span class="commenttext"><%= comment.comment %></span>
                   <br>
                   <div class="commentactions">
@@ -52,7 +52,17 @@
             
             <div class="post_show_icons_part">
               <div class="post_show_icons_part_left">
-                <a href="#"><i class="far fa-heart fa-2x my-gray icon_margin"></i></a>
+                <!--    <a href="#"><i class="far fa-heart fa-2x my-gray icon_margin"></i></a> -->
+                
+                <% if @post.already_liked?(current_user) %>
+                <!-- #いいねされているときのアイコン表示 -->
+                  <%= link_to("/likes/#{Like.find_by(post_id: @post.id,user_id: current_user.id).id}",post_id: @post.id, method: :delete) do %><i class="fas fa-heart fa-2x my-pink icon_margin"></i><% end %>
+                <% else %>
+                <!-- #いいねされていないときのアイコン表示 -->
+                  <%= link_to(likes_path(params:{post_id: @post.id}), method: :post) do %><i class="far fa-heart fa-2x my-gray icon_margin"></i><% end %>
+                <% end %>
+                
+                
                 <a href="#"><i class="far fa-comment fa-2x my-gray icon_margin"></i></a>
                 <a href="#"><i class="far fa-paper-plane fa-2x my-gray icon_margin"></i></a>
               </div>
@@ -69,7 +79,7 @@
             </div>
             
             <div class="post_show_likes">
-              ここにいいね数を表示
+              <P>いいね！ <%= @post.likes.where(post_id: @post.id).count %> 件</P>
             </div>
               
             <div class="post_show_newcomment">

@@ -9,11 +9,7 @@
       <!-- 表示テスト用 -->
       <!-- <input class="form-control searchbar" type="text" placeholder="Search" aria-label="Search"> -->
       <!-- 本実装用 -->
-      <%= form_tag root_path, :method => 'get',class: "form-control searchbar" do %>
-  　　　　<%= text_field_tag :search %>
-  　　　　<%= submit_tag 'Search', :name => nil %>
-　　　<% end %>
-      
+      <%= form_tag root_path, :method => 'get',class: "form-control searchbar" do %><%= text_field_tag :search, '',placeholder: '検索', class: 'searchinput'%><%= submit_tag '🔍', :name => nil, class: 'searchbtn' %><% end %>
     </div>
     
     

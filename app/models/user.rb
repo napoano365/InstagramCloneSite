@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -47,6 +48,21 @@ class User < ApplicationRecord
   #現在のユーザーがお気に入りしてたらtrueを返す
   def already_favorited?(post)
     favorites.include?(post)
+  end
+  
+    #投稿をいいねする
+  def like(post)
+    likes.create(post_id: post.id)
+  end
+  
+  #投稿のいいねを解除する
+  def unlike(post)
+    likes.find_by(post_id: post.id).destroy
+  end
+  
+  #現在のユーザーがいいねしてたらtrueを返す
+  def already_liked?(post)
+    likes.include?(post)
   end
   
   # ユーザーのステータスフィードを返す
