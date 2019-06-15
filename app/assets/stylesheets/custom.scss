@@ -11,6 +11,13 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+@mixin followbtnstyle{
+          margin: 0;
+          padding: 0;
+          height: 25px;
+          width: 120px;
+  }
+  
 /* universal */
 /*
 html{
@@ -32,7 +39,7 @@ textarea {
 */
 
 body {
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 .center {
@@ -545,6 +552,43 @@ aside {
 
 /*follow*/
 
+.follow_show{
+  margin: 0 0 10px 0;
+  .follow_namearea{
+    display: inline-block;
+    margin: 0 80px 0 10px;
+    p{
+      vertical-align:top;
+      margin: 0;
+    }
+  }
+
+  #follow_form{
+    position: absolute;
+  　top: 0;
+    display: inline-block;
+    .new_relationship{
+      display: inline-block;
+      .followbtnstyle{
+        margin: 0 10px 0 0;
+        padding: 0;
+        height: 25px;
+        width: 120px;
+      }
+    }
+      
+    .edit_relationship{
+      display: inline-block;
+      .followbtnstyle{
+        margin: 0;
+        padding: 0;
+        height: 25px;
+        width: 120px;
+      }
+    }
+  }
+}
+
 .users_follow{
   list-style: none;
 }
@@ -552,35 +596,49 @@ aside {
 .inline_block img{
     display:inline-block;
 }
-
-
 .posts{
   background-color: #f2f2f2;
   width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
-
 .picresize img{
   text-align:center;
   display: block;
   height: auto;
   width: 100%;
 }
-
 .picresize{
   max-width: 293px;
 }
-
 .username{
   display:inline-block;
   text-align:left;
 }
 
+
+/*post_index*/
+.post_index_finduser{
+  color: #9c9c9c;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0;
+}
+
+
+.post_index_findpost{
+  color: #9c9c9c;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 0 0 0 15px;
+}
+
+
 /*posts_show*/
 
 div.container{
   width: 100%;
+  margin: 0 17px;
 }
 
 .container_post_show{

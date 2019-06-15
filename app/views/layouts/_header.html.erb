@@ -6,12 +6,13 @@
     </div>
     
     <div class="searchbar_part active-cyan-4 ">
-      <%= form_tag root_path, :method => 'get',class: "form-control searchbar" do %><%= text_field_tag :search, '',placeholder: '検索', class: 'searchinput'%><%= submit_tag '🔍', :name => nil, class: 'searchbtn' %><% end %>
+      <%= form_tag root_path, :method => 'get',class: "form-control searchbar" do %><%= text_field_tag :search, '',placeholder: 'コメント検索', class: 'searchinput'%><%= submit_tag '🔍', :name => nil, class: 'searchbtn' %><% end %>
     </div>
     
     
     <div class="header_icons_part">
-          <a href="#"><i class="far fa-compass fa-2x my-gray icon_margin"></i></a>
+          <!-- <a href="#"><i class="far fa-compass fa-2x my-gray icon_margin"></i></a> -->
+          <%= link_to "/posts" do %><i class="far fa-compass fa-2x my-gray icon_margin"></i><% end %>          
           <a href="#"><i class="far fa-heart fa-2x my-gray icon_margin"></i></a>
           <!-- <li><a href="/users"><i class="far fa-user fa-2x my-gray"></i></a></li> -->
           <%= link_to current_user do %><i class="far fa-user fa-2x my-gray icon_margin"></i><% end %>
