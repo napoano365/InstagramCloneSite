@@ -184,6 +184,7 @@ div.header_icons_part{
 /* footer */
 
 footer {
+  background-color: rgba(255,255,255,0.7);
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
@@ -194,14 +195,7 @@ footer {
       color: $gray-darker;
     }
   }
-  small {
-    float: left;
-  
-  position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/  
-    
-  }
-  
+
   ul {
     float: none;
     list-style: none;
@@ -384,6 +378,10 @@ div.home_icons_part{
   padding: 0 16px;
   height: 120px;
   width: 598px;
+}
+
+.home_followercomment::-webkit-scrollbar{
+  display:none;
 }
 
 .home_commentpartial{
