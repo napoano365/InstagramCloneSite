@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :password, presence: true, length: { minimum: 6 },allow_nil: true
   def downcase_email
     self.email = email.downcase
   end
@@ -71,5 +71,35 @@ class User < ApplicationRecord
                      WHERE follower_id = :user_id"
     Post.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
+  end
+  
+  #Facebookログイン機能_コールバックされるユーザデータを処理する
+  def self.find_or_create_from_auth_hash(auth_hash)
+    uid = auth_hash['uid']
+    provider = auth_hash['provider']
+    
+    #既存ユーザーを見つけてくるか、新しくuserインスタンスを作成
+    user = User.find_or_create_by(uid: uid, provider: provider)
+
+    #ユーザー情報をFBから帰ってきた情報を正としてUpdateする
+    user.name = auth_hash['info']['name'] || ''
+    user.email = auth_hash['info']['email'] || 'none'
+    user.username = auth_hash['info']['name'] || ''
+    user.image= auth_hash['info']['image'] || ''
+    user.password = SecureRandom.urlsafe_base64
+
+    #以下のデータは取得してもuserモデルにカラムを準備していないため、コメントアウト
+    #user.access_token = auth_hash['credentials']['token']
+    #user.location = auth_hash['extra']['raw_info']['location'] || ''
+    #user.company = auth_hash['extra']['raw_info']['company'] || ''
+    #user.member_since = auth_hash['extra']['raw_info']['created_at'] || ''
+
+    #後置if分の中で、user.saveを実行して、データベースに保存かけてるし、加えてそれが成功したときに明示的にuserオブジェクトを関数の処理結果としてreturnするようにしている。
+    #なのでもしmodelのバリデーションでエラーになったら、処理が止まるはず。
+    if user.save
+      user
+    else
+      redirect_to '/auth/failure'
+    end
   end
 end

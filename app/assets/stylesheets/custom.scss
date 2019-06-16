@@ -4,6 +4,7 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$border-color: #fff;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -166,6 +167,7 @@ div.searchbar_part{
 .searchbtn{
   background-color: #fff;
   border: 1px solid #fff;
+  #border-radius: 50%;
   display: inline-block;
   text-align:  center;
   height: 20px;
@@ -301,7 +303,7 @@ footer {
 
 .home_poster{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   #display: inline-block;
   margin: 0;
   text-align: left;
@@ -326,7 +328,7 @@ div.userimage{
 
 .home_picture {
   background-color: #fff;
-  border: 1px solid #000000;
+  border: 1px solid $border-color;
   #display: inline-block;
   margin: 0;
   padding: 0;
@@ -340,7 +342,7 @@ div.userimage{
 
 div.home_icons_part{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   #display: inline-block;
   margin: 0;
   padding: 4px 16px 0 16px;
@@ -358,7 +360,7 @@ div.home_icons_part{
 
 .home_likes{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   #display: inline-block;
   margin: 0;
   padding: 0 16px;
@@ -368,7 +370,7 @@ div.home_icons_part{
 
 .home_poster_comment{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   display: inline-block;
   margin: 0;
   padding: 0 16px;
@@ -378,7 +380,7 @@ div.home_icons_part{
 
 .home_followercomment{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   #display: inline-block;
   overflow: scroll;
   margin: 0;
@@ -412,7 +414,7 @@ div.home_icons_part{
 
 .home_newcomment{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   #display: inline-block;
   margin: 0;
   padding: 0 2px;
@@ -450,12 +452,6 @@ div.home_icons_part{
   text-align:left;
 }
 
-
-.deletelink{
-  text-align: right;
-  float: right;
-}
-
 aside {
   section.user_show_img {
     margin-top: 0;
@@ -475,7 +471,7 @@ aside {
 .user_show_info{
   .userinfoarea{
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;	
     margin: 0 0 20px 0;
     padding: 0;
     
@@ -487,6 +483,23 @@ aside {
       margin: 0 10px 0 0;
       padding: 0;
     }
+    .editlink{
+      background-color: #fff;
+      border: solid 1px #dbdbdb;
+      border-radius: 6px;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600; 
+      text-align: center;
+      margin: 0 10px 0 0;
+      padding: 5px 9px;
+      vertical-align: middle;	
+      a{
+        color: #262626!important;
+        display: inline-block;
+      }
+    }
+    
     #follow_form{
       display: inline-block;
       .new_relationship{
@@ -502,7 +515,7 @@ aside {
       .edit_relationship{
         display: inline-block;
         .followbtnstyle{
-          margin: 0;
+          margin: 0 10px 0 0;
           padding: 0;
           height: 25px;
           width: 120px;
@@ -525,6 +538,62 @@ aside {
     }
   }
 }
+
+/*user_edit*/
+
+.row{
+  .sidemenu{
+    background-color: #fff;
+    border: 1px solid $border-color;
+    display: inline-block;
+    margin: 0;
+    padding: 20px;
+    text-align: left;
+    vertical-align: top;
+    height: 300px;
+    width: 200px;
+    .links{
+      margin: 0 0 30px 0;
+    }
+    .gravatarlinks{
+      text-align: center;
+      
+      a{
+        display: block;
+        margin: 30px 0;
+      }
+    }
+    
+  }
+  .editprofilearea{
+    display: inline-block;
+    margin: 0 80px;
+    padding: 0px;
+    text-align: left;
+    vertical-align: top;
+    
+    .deletelink{
+      text-align: right;
+      float: right;
+    }
+  }
+  
+  .passwordresetarea{
+    display: inline-block;
+    margin: 0 80px;
+    padding: 0px;
+    text-align: left;
+    vertical-align: top;
+    .passwordresetlink{
+      text-align: right;
+      float: right;
+    }
+  }
+}
+
+
+
+
 
 /*stats*/
 
@@ -580,7 +649,7 @@ aside {
     .edit_relationship{
       display: inline-block;
       .followbtnstyle{
-        margin: 0;
+        margin: 0 10px 0 0;
         padding: 0;
         height: 25px;
         width: 120px;
@@ -662,7 +731,7 @@ div.post_show{
 
 .post_show_picture {
   background-color: #fff;
-  border: 1px solid #000000;
+  border: 1px solid $border-color;
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -677,7 +746,8 @@ div.post_show{
 /*post_info*/
 
 .post_info {
-  border: 1px solid #000000;
+  background-color: #fff;
+  border: 1px solid $border-color;
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -687,12 +757,38 @@ div.post_show{
 
 .post_show_poster{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   display: inline-block;
   margin: 0;
   text-align: left;
   padding: 16px;
   width: 330px;
+  
+  #follow_form{
+    position: absolute;
+  　top: 0;
+    display: inline-block;
+    .new_relationship{
+      display: inline-block;
+      .followbtnstyle{
+        margin: 0 0 0 20px;
+        padding: 0;
+        height: 25px;
+        width: 120px;
+      }
+    }
+      
+    .edit_relationship{
+      display: inline-block;
+      .followbtnstyle{
+        margin: 0 0 0 20px;
+        padding: 0;
+        height: 25px;
+        width: 120px;
+      }
+    }
+  }
+  
 }
 
 div.userimage{
@@ -713,7 +809,7 @@ div.userimage{
 /*comments*/
 .comments{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   display: inline-block;
   overflow: scroll;
   text-align: left;
@@ -724,7 +820,8 @@ div.userimage{
 
 div.post_show_icons_part{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
+  border-top: solid 1px #eee;
   display: inline-block;
   margin: 0;
   padding: 4px 16px 0 16px;
@@ -742,7 +839,7 @@ div.post_show_icons_part{
 
 .post_show_likes{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   display: inline-block;
   text-align: left;
   margin: 0;
@@ -753,7 +850,7 @@ div.post_show_icons_part{
 
 .post_show_newcomment{
   background-color: #fff;
-  border: solid 1px #000;
+  border: solid 1px $border-color;
   display: inline-block;
   margin: 0;
   padding: 0 2px;

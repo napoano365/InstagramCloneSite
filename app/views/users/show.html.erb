@@ -11,6 +11,11 @@
         <div class="username">
           <%= @user.username %>
         </div>
+        <% if current_user?(@user) %>
+        <div class="editlink">
+          <%= link_to 'プロフィールを編集', edit_user_path %>
+        </div>
+        <% end %>
         <%= render 'follow_form' if logged_in? %>
         <% if current_user?(@user) %>
           <%= link_to logout_path, method: :delete, data: { confirm: "ログアウトしますか?" } do %><i class="fas fa-cog fa-2x my-gray"></i><% end %>

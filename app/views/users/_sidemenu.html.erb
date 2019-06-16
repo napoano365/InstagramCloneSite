@@ -1,9 +1,14 @@
-  <aside class="col-md-4">
-    <section>
-    <ul>
-      <li><%= link_to"プロフィールを編集",edit_user_path %></li>
-      <li><%= link_to"パスワードを変更",password_change_user_path %></li>
-      <li>uuu</li>
-    </ul>
+  <aside class="col-md-4 sidemenu">
+    <section class="links">
+      <p><%= link_to"プロフィールを編集",edit_user_path %></p>
+      <p><%= link_to"パスワードを変更",password_change_user_path %></p>
+      
+    </section>
+    <section class="gravatarlinks">
+      <div class="gravatar_edit">
+        <%= gravatar_for @user, size: 100  %>
+        <a href="http://gravatar.com/emails" target="_blank" rel="noopener">プロフィール画像の編集はこちら</a>
+      </div>
     </section>
   </aside>
+  
