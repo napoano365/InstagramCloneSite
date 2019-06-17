@@ -25,3 +25,6 @@
 
 # Ignore heroku folder
 /heroku/
+
+# Ignore vendor/bundler/ folder
+/vendor/bundler/
