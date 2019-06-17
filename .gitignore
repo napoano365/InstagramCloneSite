@@ -22,3 +22,6 @@
 
 # Ignore .envfile
 #/.env
+
+# Ignore heroku folder
+/heroku/
