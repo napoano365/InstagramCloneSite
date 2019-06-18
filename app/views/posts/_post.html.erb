@@ -1,0 +1,83 @@
+  <div id="<% post.id %>">
+    <div class="home_poster">
+      <div class="userimage"><%= gravatar_for post.user, size: 30 %></div>
+      <p><%= post.user.name %></p>
+    </div>
+    <div class="home_picture">
+      <%= link_to "/posts/#{post.id}" do %><%= image_tag "#{post.picture}", :class => "img-fluid mx-auto d-block" if post.picture? %><% end %>
+    </div>
+    
+    <div class="actionicons home_icons_part">
+      <div class="home_icons_part_left">
+        <% if post.already_liked?(current_user) %>
+        <!-- #いいねされているときのアイコン表示 -->
+          <%= link_to("/likes/#{Like.find_by(post_id: post.id,user_id: current_user.id).id}",post_id: post.id, method: :delete) do %><i class="fas fa-heart fa-2x my-pink icon_margin"></i><% end %>
+        <% else %>
+          <!-- #いいねされていないときのアイコン表示 -->
+          <%= link_to(likes_path(params:{post_id: post.id}), method: :post) do %><i class="far fa-heart fa-2x my-gray icon_margin"></i><% end %>
+        <% end %>
+        <a href="#"><i class="far fa-comment fa-2x my-gray icon_margin"></i></a>
+        <a href="#"><i class="far fa-paper-plane fa-2x my-gray icon_margin"></i></a>
+      </div>
+      <div class="home_icons_part_right">
+        <% if post.already_favorited?(current_user) %>
+          <!-- #お気に入りされているときのアイコン表示 -->
+          <%= link_to("/favorites/#{Favorite.find_by(post_id: post.id,user_id: current_user.id).id}",post_id: post.id, method: :delete) do %><i class="fas fa-bookmark fa-2x my-gray icon_margin"></i><% end %>
+        <% else %>
+          <!-- #お気に入りされていないときのアイコン表示 -->
+          <%= link_to(favorites_path(params:{post_id: post.id}), method: :post) do %><i class="far fa-bookmark fa-2x my-gray"></i><% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="home_likes">
+      <div class="likes"><P>いいね！ <%= post.likes.where(post_id: post.id).count %> 件</P></div>
+    </div>
+    
+    <div class="home_poster_comment" >
+      <div class="home_commentpartial">
+        <div class="userimage">
+          <%= gravatar_for post.user, size: 30 %>
+        </div>
+        <span class="home_commentcontents">
+          <p><%= post.user.name %></p>
+          <span class="commenttext"><%= post.comment %></span>
+          <br>
+        </span>
+        <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+        <div class="deletebtn"><% if current_user?(post.user) %><%= link_to "delete", post, method: :delete,data: { confirm: "削除しますか?" } %><% end %></div>
+      </div>
+    </div>
+    
+    <div class="home_followercomment">
+      <% @comments = post.comments %>
+      <% @comments.each do |comment| %>
+       <div class="home_commentpartial">
+          <div class="userimage">
+            <%= gravatar_for comment.user, size: 30 %>
+          </div>
+          <div class="home_commentcontents">
+            <p><%= comment.user.name %></p>
+            <span class="commenttext"><%= comment.comment %></span>
+            <br>
+            <div class="commentactions">
+              <span class="timestamp"><%= time_ago_in_words(comment.created_at) %> ago.</span>
+              <span class="Likecount"></span>
+              <span class="reply">返信</span>
+                <% if comment.user_id == current_user.id %>
+                  <span class="commmentdelete"><%= link_to "削除", "/comments/#{comment.id}" ,:method => "delete", data: { confirm: "削除しますか?" } %></span>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="home_newcomment">
+      <%= form_for(@newcomment) do |f| %>
+<%= hidden_field_tag :user_id, current_user.id %>
+<%= hidden_field_tag :post_id, post.id %>
+<%= f.text_area :comment, class: 'commentarea home_commentarea_size', :placeholder => "コメントを追加...", :size => "1x1"%><%= f.submit "投稿する", class: "btn btn-primary newcome_sbmtbtn" %>
+      <% end %>
+    </div>
+  </div>
+  <br>

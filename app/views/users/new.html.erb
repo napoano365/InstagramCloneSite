@@ -1,0 +1,26 @@
+<% provide(:title, 'Sign up') %>
+<div class="row signupform" >
+  <h1 class="NXVPg Szr5J  coreSpriteLoggedOutWordmark">InstaClone</h1>
+  <div class="col-md-12 col-md-offset-3 signupformfor">
+   <!--  <#%= form_for(@user, html: {method: "post"}) do |f| %> -->
+    <%= form_for(@user, url: signup_path) do |f| %>
+      <%= render 'shared/error_messages', object: f.object  %>
+　　　<%= f.email_field :email, class: 'form-control', :placeholder => "メールアドレス"%>
+    　<%= f.text_field :name, class: 'form-control', :placeholder => "フルネーム"%>
+      <br>
+      <%= f.text_field :username, class: 'form-control', :placeholder => "ユーザーネーム"%>
+      <br>
+      <%= f.password_field :password, class: 'form-control', :placeholder => "パスワード"%>
+      <br>
+      <%= f.password_field :password_confirmation, class: 'form-control', :placeholder => "パスワード(確認用)"%>
+      <br>
+      <%= f.submit "登録する", class: "btn btn-primary signupbtn" %>
+    <% end %>
+    <br>
+    <p class="SignupPledge">登録することで、Facebookの<span class="SignupPledgebold">利用規約、データに関するポリシー、Cookieポリシー</span>に同意するものとします。</p>
+    
+    <hr size="20">
+    <div>または</div>
+    <p>アカウントをお持ちですか？<%= link_to "ログインする", root_path %></p>
+  </div>
+</div>

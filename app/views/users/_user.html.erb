@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+<div class="follow_show">
+  <div class="userimage"><%= gravatar_for user, size: 30 %></div>
+  <div class="follow_namearea">
+    <p><%= link_to user.name, user %></p>
+    <p><%= link_to user.username, user %></p>
+  </div>
+  <%= render 'follow_form2',:locals => {:user_id => user.id } if logged_in? %>
+</div>
+<% end %>

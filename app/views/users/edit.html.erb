@@ -1,0 +1,13 @@
+<% provide(:title, "Edit user") %>
+<% provide(:button_text, '送信する') %>
+<h1>プロフィールを編集</h1>
+<div class="row">
+  <%= render 'sidemenu' %>
+  <div class="col-md-6 col-md-offset-3 editprofilearea">
+    <%= render 'profileform' %>
+    
+    <span class="deletelink">
+    　<%= link_to "アカウントを削除する", user_path ,method: :delete, data: { confirm: "アカウントを削除しますか?" } %>
+    </span>
+  </div>
+</div>
