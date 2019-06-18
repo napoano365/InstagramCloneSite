@@ -21,10 +21,32 @@
 .byebug_history
 
 # Ignore .envfile
-#/.env
+#（レビューをお願いする際は、環境変数もお伝えしなければ動作確認できないのでは、とも考えたのですが、不要でしょうか…。
+#またはgitでのバージョン管理云々と、pushされるされないは挙動が別なのでしょうか？）
+/.env
 
 # Ignore heroku folder
 /heroku/
 
 # Ignore vendor/bundler/ folder
 /vendor/bundler/
+
+#今回、coffeescriptのコードを特に追記していないためgitignoreしました。
+#application.js は マニュフェストファイルで、[require bootstrap-sprockets]など追記したため、管理下に残しました。
+/app/assets/javascripts/*.coffee
+
+# custom .scssにスタイルに関するコードをまとめて記載しているため、それ以外のファイルをgitignoreしました。
+/app/assets/stylesheets/
+!/app/assets/stylesheets/custom.scss
+
+#ファイル名にハッシュ値がついている以下ディレクトリのファイルは
+#herokuへのデプロイ時に発生した「Precompiling assets failed.」というエラーの調査に合わせ、ローカルで
+#「$ RAILS_ENV=production bin/rails assets:precompile」を実行した際に作成されたものと考え、gitignroeしました。
+/public/assets/
+
+#以下のディレクトリのファイルは「Rails Server」で動作検証時にアップロードした写真ファイルのためgitignoreしました。
+/Public/uploads/post/
+
+#テストに関するファイルは、今回理解が及ばず全くコードをかけていないのですが、
+#レビュー依頼時はこのようなファイルも、バージョン管理から除外するべきでしょうか？
+#/test/
