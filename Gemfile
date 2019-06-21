@@ -27,6 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'rspec-rails', '~>3.6.0'
+  gem "factory_bot_rails", '~> 4.10.0'
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'dotenv-rails'
@@ -42,7 +43,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'rspec-rails', '~> 3.6.0'
 end
 
 group :production do
